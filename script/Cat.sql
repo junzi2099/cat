@@ -1,3 +1,5 @@
+CREATE  SCHEMA `cat`;
+USE `cat`;
 CREATE TABLE `dailygraph` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(20) NOT NULL COMMENT '报表名称',
