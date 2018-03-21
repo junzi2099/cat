@@ -1,24 +1,14 @@
 package com.dianping.cat.message.io;
 
+import com.dianping.cat.configuration.ClientConfigManager;
+import com.dianping.cat.configuration.KVConfig;
+import com.dianping.cat.message.internal.MessageIdFactory;
+import com.dianping.cat.message.spi.MessageQueue;
+import com.site.helper.JsonBuilder;
 import io.netty.bootstrap.Bootstrap;
-import io.netty.channel.Channel;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInitializer;
-import io.netty.channel.ChannelOption;
-import io.netty.channel.EventLoopGroup;
-import io.netty.channel.SimpleChannelInboundHandler;
+import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
-
-import java.io.InputStream;
-import java.net.InetSocketAddress;
-import java.net.SocketAddress;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.TimeUnit;
-
 import org.unidal.helper.Files;
 import org.unidal.helper.Splitters;
 import org.unidal.helper.Threads.Task;
@@ -27,11 +17,13 @@ import org.unidal.lookup.logging.Logger;
 import org.unidal.lookup.util.StringUtils;
 import org.unidal.tuple.Pair;
 
-import com.dianping.cat.configuration.ClientConfigManager;
-import com.dianping.cat.configuration.KVConfig;
-import com.dianping.cat.message.internal.MessageIdFactory;
-import com.dianping.cat.message.spi.MessageQueue;
-import com.site.helper.JsonBuilder;
+import java.io.InputStream;
+import java.net.InetSocketAddress;
+import java.net.SocketAddress;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.TimeUnit;
 
 public class ChannelManager implements Task {
 
@@ -456,6 +448,7 @@ public class ChannelManager implements Task {
 			return this;
 		}
 
+		@Override
 		public String toString() {
 			StringBuilder sb = new StringBuilder();
 
